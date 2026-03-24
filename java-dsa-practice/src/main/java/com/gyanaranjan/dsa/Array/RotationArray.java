@@ -14,6 +14,8 @@
 
 package com.gyanaranjan.dsa.Array;
 
+import java.util.Arrays;
+
 public class RotationArray {
 
     public static int[] reverseBetween(int[] array, int m, int n) {
@@ -24,21 +26,16 @@ public class RotationArray {
             int temp = array[left];
             array[left] = array[right];
             array[right] = temp;
-
             left++;
             right--;
         }
-
         return array;
     }
 
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 4, 5};
 
-        int[] result = reverseBetween(array, 2, 4);
-
-        for (int num : result) {
-            System.out.print(num + " ");
-        }
+        int[] result = reverseBetween(array, 1, 5);
+        System.out.println(Arrays.toString(result));
     }
 }
