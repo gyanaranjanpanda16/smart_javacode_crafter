@@ -4,7 +4,7 @@ public class  FirstNonRepeatedCharacter {
 
 
     public static void main(String[] args) {
-        String str = "welwel";
+        String str = "welwelf";
 
         char firstNonRepeating = findFirstNonRepeating(str);
 
@@ -19,6 +19,7 @@ public class  FirstNonRepeatedCharacter {
         for (char c : str.toCharArray()) {
             if (str.indexOf(c) == str.lastIndexOf(c)) {
                 return c;
+
             }
         }
         return '\0'; // If no non-repeating character found
