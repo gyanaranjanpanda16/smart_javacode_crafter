@@ -1,74 +1,51 @@
-# Java and DSA Practice Repository
+# Java Interview Lab
 
-Welcome to the **Java and DSA Practice Repository**! This repository is dedicated to improving your skills in Java programming and Data Structures and Algorithms (DSA). It contains various practice programs, algorithms, and data structure implementations to help you master these essential concepts.
+A structured Java 21 workspace for preparing for product-company interviews: DSA, low-level design (LLD), high-level design (HLD), and interview practice.
 
-## Table of Contents
+**Start here:** [Oct 1–Dec 31 study plan](docs/STUDY_PLAN.md) → [daily assignments](docs/DAILY_PLAN.md) → [progress tracker](docs/PROGRESS.md).
 
-- [Introduction](#introduction)
-- [Repository Structure](#repository-structure)
-- [Getting Started](#getting-started)
-- [How to Contribute](#how-to-contribute)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+## Modules
 
-## Introduction
+| Module | Purpose | Start |
+| --- | --- | --- |
+| `core` | Existing Java exercises and language fundamentals | [Java checklist](core/README.md) |
+| `java-dsa-practice` | Algorithms, complexity, and tested Java solutions | [DSA guide](java-dsa-practice/README.md) |
+| `java-lld-practice` | Object modeling, SOLID, patterns, and executable designs | [LLD guide](java-lld-practice/README.md) |
+| `java-hld-practice` | Architecture, capacity estimates, and design tradeoffs | [HLD guide](java-hld-practice/README.md) |
 
-This repository serves as a learning resource for anyone looking to improve their knowledge and skills in Java and DSA. Whether you're preparing for coding interviews, enhancing your problem-solving abilities, or just brushing up on your Java programming skills, this repository is a valuable resource.
+HLD is a documentation module (`pom` packaging); it does not pretend to be an executable service. Existing Java sources retain their paths and packages. New code uses lowercase topic packages.
 
-## Repository Structure
+## Run
 
-The repository is organized into the following directories:
+Install JDK 21+ and Maven 3.9+. The build targets Java 21; CI runs on JDK 21.
 
-- **src/main/java/dsa/**: Contains the implementation of various data structures (e.g., arrays, linked lists, trees, graphs) and algorithms (e.g., sorting, searching, dynamic programming).
-- **src/main/java/practice/**: Contains practice programs that cover a wide range of topics in Java, from basic syntax to advanced concepts.
-- **src/test/java/**: Includes test cases for the implementations and practice programs to ensure correctness and functionality.
-- **docs/**: Contains additional documentation and resources to help you understand the concepts better.
+```sh
+mvn verify
+mvn -pl java-dsa-practice -am test
+mvn -pl java-lld-practice -am test
+mvn -pl java-dsa-practice -Dtest=ArrayMaximumTest test
+```
 
-## Getting Started
+In IntelliJ, open the root `pom.xml`, choose JDK 21 or newer, and reload Maven. If `mvn` is unavailable in your terminal, use IntelliJ's bundled Maven through its Maven tool window. First-time dependency resolution needs network access.
 
-To get started with the repository, follow these steps:
+## Daily workflow
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/java-dsa-practice.git
-Navigate to the repository directory:
-Navigate to the repository directory, build, and run the project:
+Budget 3 hours/day: 90 minutes DSA, 60 minutes LLD/HLD, and 30 minutes review. DSA assumes no prior knowledge: start with variables, conditions, loops and methods on October 1 and finish with an assessment on December 31.
 
-bash
-Copy code
-cd java-dsa-practice
-mvn clean install
-You can then run the individual programs or tests as needed.
+1. Open the next assignment in [DAILY_PLAN](docs/DAILY_PLAN.md); attempt before reading solutions.
+2. Write a Java method and tests, explain complexity, and save notes using the [problem template](templates/PROBLEM.md).
+3. Spend the design block on the week's LLD or HLD deliverable.
+4. Update [PROGRESS](docs/PROGRESS.md) and schedule reviews after 2, 7, and 21 days.
+5. Run the module tests before committing.
 
-Explore and practice:
-Browse through the dsa and practice directories to find various Java programs and DSA implementations. Modify, experiment, and learn as you go.
+Use a short-lived branch such as `study/week-01-basics`, then merge after the weekly review. Keep all tracks in this repository; separate long-lived branches would make progress harder to follow.
 
-## How to Contribute
+## What is included
 
-**Contributions are welcome!** If you'd like to contribute to this repository, please follow these steps:
+- October 1–December 31, 2026: 92 dated daily assignments, with revision and mocks built in.
+- Tested starters: array maximum, longest unique substring, and climbing stairs.
+- A tested library-loan LLD example and a worked URL-shortener HLD case study.
+- Shared compiler/test versions, JUnit, and GitHub Actions verification.
+- [Interview rubric](docs/INTERVIEW_READINESS.md), reusable templates, and [resources](docs/RESOURCES.md).
 
-1. **Fork the repository.**
-
-2. **Create a new branch:**
-
-   ```bash
-   git checkout -b feature-branch
-Make your changes and commit them:
-
-```bash
-Copy code
-git commit -m "Add your message here"
-Push to your branch:
-
-```bash
-Copy code
-git push origin feature-branch
-Create a pull request against the main repository.
-## License
-
-This repository is licensed under the MIT License. See the LICENSE file for more information.
-
-## Acknowledgments
-
-Special thanks to all the contributors and the open-source community for their valuable input and resources. This repository wouldn't be possible without your support.
-
+The curriculum is a suggested learning sequence, not a list of guaranteed Google questions. Interview scope depends on role and level; confirm it with your recruiter. Completing the tracker means completing practice, not a hiring guarantee.
