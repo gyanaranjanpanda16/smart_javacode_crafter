@@ -11,7 +11,7 @@ public class WitoutRepeatingSubstring {
        Set<Character> set = new HashSet<>();
        for(int i = 0; i < substring.length(); i++){
           while(set.contains(substring.charAt(i))){
-              set.remove(substring.charAt(i));
+              set.remove(substring.charAt(left));
               left++;
           }
           set.add(substring.charAt(i));
